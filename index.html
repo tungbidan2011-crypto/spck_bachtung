@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERSTORE // Linh Kiện PC Gaming Cao Cấp</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-microchip logo-icon"></i>
+            CYBER<span>GEAR</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm CPU, VGA, RAM, SSD...">
+            <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="nav-actions">
+            <div class="cart-btn-wrapper" id="openCartBtn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            
+            <div id="userSection">
+                <button class="btn-neon btn-pink" id="openAuthBtn">
+                    <i class="fa-solid fa-user-astronaut"></i> ĐĂNG NHẬP
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NÂNG CẤP <span>QUÁI VẬT</span> GAMING CỦA BẠN</h1>
+            <p>Linh kiện máy tính chính hãng, hiệu năng vượt trội, chuẩn phong cách Cyberpunk RGB.</p>
+            <a href="#productsSection" class="btn-neon btn-cyan">KHÁM PHÁ NGAY</a>
+        </div>
+    </section>
+
+    <!-- Filter & Catalog Section -->
+    <main class="main-container" id="productsSection">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3><i class="fa-solid fa-filter"></i> Danh Mục</h3>
+                <div class="category-list">
+                    <button class="cat-btn active" data-category="all">Tất cả sản phẩm</button>
+                    <button class="cat-btn" data-category="vga">Card Màn Hình (VGA)</button>
+                    <button class="cat-btn" data-category="cpu">Vi Xử Lý (CPU)</button>
+                    <button class="cat-btn" data-category="ram">Bộ Nhớ RAM</button>
+                    <button class="cat-btn" data-category="ssd">Ổ Cứng SSD</button>
+                    <button class="cat-btn" data-category="psu">Nguồn (PSU)</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3><i class="fa-solid fa-arrow-up-wide-short"></i> Sắp Xếp</h3>
+                <select id="sortSelect" class="cyber-select">
+                    <option value="default">Mặc định</option>
+                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                </select>
+            </div>
+        </aside>
+
+        <section class="products-grid" id="productGrid">
+            <!-- Sản phẩm được thêm tự động bằng Javascript -->
+        </section>
+    </main>
+
+    <!-- Side Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG CỦA BẠN</h3>
+            <button class="close-btn" id="closeCartBtn">&times;</button>
+        </div>
+        <div class="cart-body" id="cartItemsContainer">
+            <!-- Danh sách vật phẩm giỏ hàng -->
+        </div>
+        <div class="cart-footer">
+            <div class="total-price-row">
+                <span>TỔNG TIỀN:</span>
+                <span id="cartTotalPrice" class="neon-text-cyan">0 ₫</span>
+            </div>
+            <button class="btn-neon btn-pink btn-block" id="checkoutBtn">THANH TOÁN NGAY</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Modal Đăng Nhập / Đăng Ký (Firebase Auth) -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-box">
+            <button class="close-btn" id="closeAuthBtn">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin">ĐĂNG NHẬP</button>
+                <button class="auth-tab" id="tabRegister">ĐĂNG KÝ</button>
+            </div>
+
+            <div id="authAlert" class="auth-alert"></div>
+
+            <form id="authForm">
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    <input type="email" id="authEmail" class="cyber-input" placeholder="cyberpunk@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>MẬT KHẨU</label>
+                    <input type="password" id="authPassword" class="cyber-input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-neon btn-cyan btn-block" id="authSubmitBtn">ĐĂNG NHẬP</button>
+            </form>
+
+            <div class="divider">HOẶC</div>
+
+            <button class="btn-google btn-block" id="googleAuthBtn">
+                <i class="fa-brands fa-google"></i> Tiếp tục với Google
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase App & Auth SDK (V9 Modular CDN) -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
